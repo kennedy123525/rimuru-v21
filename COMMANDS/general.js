@@ -8,7 +8,7 @@ const { state } = require('../lib/connection');
 const path = require('path');
 const fs = require('fs');
 
-const MENU_IMAGE = path.join(__dirname, '../assets/rimuru-menu.webp');
+const MENU_IMAGE = path.join(__dirname, '../rimuru-menu.webp');
 
 const sendMenu = async (ctx) => {
   const caption = buildMenu(ctx.commandList);
