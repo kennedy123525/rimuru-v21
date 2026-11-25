@@ -1,11 +1,27 @@
+
 const config = require('../config');
 const { buildMenu } = require('../lib/menu');
 const fallback = require('../lib/fallback');
 const settings = require('../lib/settings');
 const memory = require('../lib/memory');
 const { state } = require('../lib/connection');
+const path = require('path');
+const fs = require('fs');
 
-const sendMenu = (ctx) => ctx.reply(buildMenu(ctx.commandList));
+const MENU_IMAGE = path.join(__dirname, '../assets/rimuru-menu.webp');
+
+const sendMenu = async (ctx) => {
+  const caption = buildMenu(ctx.commandList);
+
+  if (fs.existsSync(MENU_IMAGE)) {
+    await ctx.sock.sendMessage(ctx.jid, {
+      image: fs.readFileSync(MENU_IMAGE),
+      caption,
+    }, { quoted: ctx.msg });
+  } else {
+    await ctx.reply(caption);
+  }
+};
 
 function fmtUptime(sec) {
   const d = Math.floor(sec / 86400), h = Math.floor((sec % 86400) / 3600), m = Math.floor((sec % 3600) / 60);
