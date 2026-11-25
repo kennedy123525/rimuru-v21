@@ -1,0 +1,1 @@
+module.exports={name:"ratio",async execute(sock,msg,args,sender){const jid=msg.key.remoteJid;const ctx=msg.message?.extendedTextMessage?.contextInfo;const target=ctx?.participant||sender;sock.sendMessage(jid,{text:"📊 *RATIO!*\n\n@"+target.split("@")[0]+" got ratioed!\n\nL + ratio + no cap + you fell off + down bad + mid + cope",mentions:[target]})}}

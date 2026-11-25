@@ -1,0 +1,1 @@
+module.exports={name:"confess",async execute(sock,msg,args){const jid=msg.key.remoteJid;const text=args.join(" ");if(!text)return sock.sendMessage(jid,{text:"Usage: .confess <your confession>\nExample: .confess I actually like pineapple on pizza"});await sock.sendMessage(jid,{text:"🤫 *Anonymous Confession*\n\n_\""+text+"\"_\n\n👀 Someone just confessed something... 🙊"})}}

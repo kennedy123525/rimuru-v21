@@ -1,0 +1,1 @@
+module.exports={name:"coinflip",async execute(sock,msg){const jid=msg.key.remoteJid;const result=Math.random()>0.5?"HEADS":"TAILS";const emoji=result==="HEADS"?"🪙":"🔶";sock.sendMessage(jid,{text:"🪙 *Coin Flip*\n\n"+emoji+" *"+result+"*!\n\n_Luck of the coin decides all!_"})}}

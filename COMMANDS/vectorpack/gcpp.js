@@ -1,0 +1,1 @@
+const g=require("./getgrouppp");module.exports={name:"gcpp",async execute(...a){return g.execute(...a)}}

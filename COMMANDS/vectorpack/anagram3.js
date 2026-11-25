@@ -1,0 +1,1 @@
+module.exports={name:"scramble",async execute(sock,msg,args){const jid=msg.key.remoteJid;const word=args.join(" ").trim();if(!word)return sock.sendMessage(jid,{text:"Usage: .scramble <word>"});const sc=word.split("").sort(()=>Math.random()-0.5).join("");sock.sendMessage(jid,{text:"🔤 *Scramble*\n\nOriginal: *"+word+"*\nScrambled: *"+sc+"*"})}}

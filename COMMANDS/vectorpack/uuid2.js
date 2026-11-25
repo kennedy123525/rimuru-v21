@@ -1,0 +1,1 @@
+const {v4:uuidv4}=require("uuid");module.exports={name:"uuid",async execute(sock,msg){const jid=msg.key.remoteJid;const id=uuidv4();sock.sendMessage(jid,{text:"🔑 *UUID Generator*\n\n`"+id+"`\n\n_Unique identifier generated!_"})}}

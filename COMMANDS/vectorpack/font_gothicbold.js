@@ -1,0 +1,17 @@
+/**
+ * .gothicbold — gothicbold unicode text style
+ */
+const MAP = {"0":"𝟎","1":"𝟏","2":"𝟐","3":"𝟑","4":"𝟒","5":"𝟓","6":"𝟔","7":"𝟕","8":"𝟖","9":"𝟗","A":"𝕬","a":"𝖆","B":"𝕭","b":"𝖇","C":"𝕮","c":"𝖈","D":"𝕯","d":"𝖉","E":"𝕰","e":"𝖊","F":"𝕱","f":"𝖋","G":"𝕲","g":"𝖌","H":"𝕳","h":"𝖍","I":"𝕴","i":"𝖎","J":"𝕵","j":"𝖏","K":"𝕶","k":"𝖐","L":"𝕷","l":"𝖑","M":"𝕸","m":"𝖒","N":"𝕹","n":"𝖓","O":"𝕺","o":"𝖔","P":"𝕻","p":"𝖕","Q":"𝕼","q":"𝖖","R":"𝕽","r":"𝖗","S":"𝕾","s":"𝖘","T":"𝕿","t":"𝖙","U":"𝖀","u":"𝖚","V":"𝖁","v":"𝖛","W":"𝖂","w":"𝖜","X":"𝖃","x":"𝖝","Y":"𝖄","y":"𝖞","Z":"𝖅","z":"𝖟"}
+
+module.exports = {
+  name: "gothicbold",
+  category: "unicode",
+  description: "Convert text to gothicbold style",
+  async execute(sock, msg, args, sender, ctx) {
+    const jid = msg.key.remoteJid
+    const text = args.join(" ").trim()
+    if (!text) return sock.sendMessage(jid, { text: "🔤 Usage: .gothicbold <text>\nExample: .gothicbold hello world" }, { quoted: msg })
+    const out = text.replace(/[A-Za-z0-9]/g, c => MAP[c] || c)
+    await sock.sendMessage(jid, { text: out }, { quoted: msg })
+  },
+}

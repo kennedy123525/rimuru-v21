@@ -1,0 +1,1 @@
+const i=require("./ig");module.exports={name:"instagram",async execute(...a){return i.execute(...a)}}

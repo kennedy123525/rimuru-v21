@@ -1,0 +1,1 @@
+const g=require("./gcstatus");module.exports={name:"gstatus",async execute(...a){return g.execute(...a)}}

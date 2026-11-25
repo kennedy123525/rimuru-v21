@@ -1,0 +1,22 @@
+module.exports = {
+  name: "afk",
+  async execute(sock, msg, args, sender) {
+    const jid    = msg.key.remoteJid
+    const reason = args.join(" ").trim() || "AFK"
+    if (!global.afkUsers) global.afkUsers = {}
+
+    if (global.afkUsers[sender]) {
+      const afk = global.afkUsers[sender]
+      const ago = Math.floor((Date.now() - afk.time) / 60000)
+      return sock.sendMessage(jid, {
+        text: "💤 *You are AFK*\n💬 Reason: " + afk.reason + "\n⏱ " + ago + " min ago\n\n_Send any normal message (not a command) to remove AFK_"
+      })
+    }
+
+    global.afkUsers[sender] = { reason, time: Date.now() }
+    await sock.sendMessage(jid, {
+      text: "💤 *AFK set!*\n\n@" + sender.split("@")[0] + " is now AFK\n💬 Reason: _" + reason + "_\n\n_Send a normal message to remove AFK_",
+      mentions: [sender]
+    })
+  }
+}

@@ -1,0 +1,1 @@
+const t=require("./tt");module.exports={name:"tiktok",async execute(...a){return t.execute(...a)}}

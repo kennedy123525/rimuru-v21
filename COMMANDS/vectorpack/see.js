@@ -1,0 +1,1 @@
+module.exports={name:"seen",async execute(sock,msg,args,sender){const jid=msg.key.remoteJid;await sock.sendMessage(jid,{text:"👁️ *Last Seen*\n\n_WhatsApp Privacy settings prevent bots from checking last seen directly._\n\nTo check someone's last seen:\n• Open WhatsApp\n• Go to their chat\n• It shows under their name if they allow it"})}}

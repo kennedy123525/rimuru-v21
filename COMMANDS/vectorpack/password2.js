@@ -1,0 +1,1 @@
+const crypto=require("crypto");module.exports={name:"pin",async execute(sock,msg,args){const j=msg.key.remoteJid;const len=Math.min(Math.max(parseInt(args[0])||4,4),12);const pin=Array.from(crypto.randomBytes(len)).map(b=>b%10).join("");sock.sendMessage(j,{text:"🔢 *Random PIN*\n\n`"+pin+"`\n\n📏 Length: "+len+" digits\n💡 Use .genpass for stronger passwords"})}}
