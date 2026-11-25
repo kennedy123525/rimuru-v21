@@ -31,7 +31,7 @@ const lastAiAt = new Map();
 const afkNoticeAt = new Map();
 
 // Sticker mood folders.
-const STICKER_DIR = path.join(__dirname, 'stickers');
+const STICKER_DIR = path.join(__dirname, 'rimuru stickers');
 
 const MOOD_PATTERNS = {
   laugh: /😂|🤣|😹|\b(lol|lmao|rofl|hilarious|funny|laughing)\b/i,
