@@ -80,7 +80,6 @@ async function replyWithSticker(ctx, text) {
   await sendMoodSticker(ctx, text);
 }
 
-const afkNoticeAt = new Map();
 
 // Owner phrases that put Rimuru to sleep / wake him up in the current chat.
 const SLEEP_RE = /^\s*(?:(?:hey\s+)?rimuru[\s,]+(?:go\s+(?:to\s+)?)?sleep(?:\s+now)?|sleep\s+(?:now\s+)?rimuru|go\s+(?:to\s+)?sleep\s+rimuru)\s*[.!]*\s*$/i;
