@@ -65,10 +65,9 @@ async function sendMoodSticker(ctx, text) {
     const sticker = fs.readFileSync(path.join(moodDir, selected));
 
     await ctx.sock.sendMessage(
-      ctx.jid,
-      { sticker },
-      { quoted: ctx.msg }
-    );
+  ctx.jid,
+  { sticker }
+);
   } catch (e) {
     log.warn('Mood sticker failed:', e.message);
   }
