@@ -1,6 +1,7 @@
 
 // Decides what to do with each incoming message:
 // learn ids -> Kennedy protection (fast) -> AFK -> commands -> AI chat (if Rimuru is addressed)
+console.log("messageHandler v2 loaded");
 const config = require('./config');
 const log = require('./lib/logger');
 const fs = require('fs');
